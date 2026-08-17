@@ -1,0 +1,2498 @@
+[
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is deep learning?"
+      },
+      {
+        "role": "assistant",
+        "content": "Deep learning is a branch of machine learning that uses neural networks with multiple learned layers to automatically learn representations from data. The learned representations can support tasks such as classification, prediction, generation, and perception."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is a neural network?"
+      },
+      {
+        "role": "assistant",
+        "content": "A neural network is a parameterized function made of layers of interconnected computational units. During training, its weights and biases are adjusted so that predictions minimize a chosen loss function."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What are parameters in a neural network?"
+      },
+      {
+        "role": "assistant",
+        "content": "Parameters are values learned from data during training, primarily weights and biases. The optimizer updates them using gradients computed from the training loss."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is a hyperparameter?"
+      },
+      {
+        "role": "assistant",
+        "content": "A hyperparameter is a training or architecture setting chosen by the practitioner rather than directly learned from the data. Examples include learning rate, batch size, dropout rate, and number of training epochs."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is forward propagation?"
+      },
+      {
+        "role": "assistant",
+        "content": "Forward propagation passes an input through the network layer by layer to produce a prediction. Each layer transforms the representation using its parameters and activation functions."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is backpropagation?"
+      },
+      {
+        "role": "assistant",
+        "content": "Backpropagation efficiently computes gradients of the loss with respect to model parameters by applying the chain rule from the output layer backward through the computational graph. An optimizer then uses those gradients to update the parameters."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why is the chain rule important in backpropagation?"
+      },
+      {
+        "role": "assistant",
+        "content": "The chain rule lets us compute how the final loss changes with respect to parameters deep inside the network by multiplying derivatives through successive operations. This makes gradient-based training of multilayer networks practical."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is a computational graph?"
+      },
+      {
+        "role": "assistant",
+        "content": "A computational graph represents a computation as connected operations and tensors. Deep learning frameworks use this structure to track dependencies and compute gradients during backpropagation."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why do neural networks need activation functions?"
+      },
+      {
+        "role": "assistant",
+        "content": "Activation functions introduce nonlinearity. Without them, stacking linear layers would still produce an overall linear transformation, limiting the network's ability to learn complex relationships."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why is ReLU commonly used?"
+      },
+      {
+        "role": "assistant",
+        "content": "ReLU outputs max(0, x). It is simple and computationally efficient, and its non-saturating positive region often provides useful gradients in deep networks."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is sigmoid?"
+      },
+      {
+        "role": "assistant",
+        "content": "Sigmoid maps a value to the range 0 to 1. It is useful when a probability-like scalar output is required, but it can suffer from saturation and small gradients in hidden layers."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is softmax?"
+      },
+      {
+        "role": "assistant",
+        "content": "Softmax converts a vector of logits into positive values that sum to one. It is commonly used to represent a probability distribution over mutually exclusive classes."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is GELU?"
+      },
+      {
+        "role": "assistant",
+        "content": "GELU, or Gaussian Error Linear Unit, is a smooth nonlinear activation that weights inputs according to their magnitude. It is widely used in Transformer-based models."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is the vanishing gradient problem?"
+      },
+      {
+        "role": "assistant",
+        "content": "The vanishing gradient problem occurs when gradients become very small as they propagate through many layers or time steps. Earlier parameters then receive tiny updates, making learning difficult."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is the exploding gradient problem?"
+      },
+      {
+        "role": "assistant",
+        "content": "The exploding gradient problem occurs when gradients become excessively large during backpropagation. This can produce unstable parameter updates or numerical problems."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is a loss function?"
+      },
+      {
+        "role": "assistant",
+        "content": "A loss function measures the discrepancy between a model's prediction and its target. Training uses this signal to compute gradients and update model parameters."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is mean squared error?"
+      },
+      {
+        "role": "assistant",
+        "content": "Mean squared error, or MSE, is the mean of squared differences between predictions and targets. It is commonly used for regression and penalizes larger errors more strongly."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is cross-entropy loss?"
+      },
+      {
+        "role": "assistant",
+        "content": "Cross-entropy measures the difference between a target distribution and the model's predicted distribution. In classification, it penalizes assigning low probability to the correct class."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is gradient descent?"
+      },
+      {
+        "role": "assistant",
+        "content": "Gradient descent updates parameters in the direction that reduces the loss. The gradient indicates the direction of greatest increase, so the optimizer moves approximately in the opposite direction."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is stochastic gradient descent?"
+      },
+      {
+        "role": "assistant",
+        "content": "Stochastic gradient descent updates parameters using individual examples or small mini-batches rather than the entire dataset. Its gradient estimates are noisy but computationally efficient."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is Adam?"
+      },
+      {
+        "role": "assistant",
+        "content": "Adam is an adaptive optimizer that maintains estimates of the first and second moments of gradients. These estimates are used to scale parameter updates during training."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is the learning rate?"
+      },
+      {
+        "role": "assistant",
+        "content": "The learning rate controls the size of parameter updates during optimization. A large value can speed learning but may cause instability, while a small value gives smaller updates and may make convergence slower."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What happens if the learning rate is too high?"
+      },
+      {
+        "role": "assistant",
+        "content": "A very high learning rate can cause the loss to oscillate, overshoot useful solutions, or diverge. Reducing the learning rate or using a suitable scheduler can improve stability."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What happens if the learning rate is too low?"
+      },
+      {
+        "role": "assistant",
+        "content": "A very low learning rate produces small parameter updates and can make training converge very slowly. It may require more optimization steps to reach a good solution."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is a learning-rate scheduler?"
+      },
+      {
+        "role": "assistant",
+        "content": "A learning-rate scheduler changes the learning rate during training according to a chosen strategy. It can use a schedule based on steps, epochs, validation behavior, or other criteria."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is weight decay?"
+      },
+      {
+        "role": "assistant",
+        "content": "Weight decay is a regularization mechanism that discourages excessively large weights. In commonly used optimizers, it can help reduce overfitting and improve generalization."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is gradient clipping?"
+      },
+      {
+        "role": "assistant",
+        "content": "Gradient clipping limits gradient magnitude before an optimizer update. It is commonly used to reduce instability caused by exploding gradients."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is an epoch?"
+      },
+      {
+        "role": "assistant",
+        "content": "An epoch is one complete pass through the training dataset. With mini-batch training, it consists of enough optimization steps to process all training examples once."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is a batch?"
+      },
+      {
+        "role": "assistant",
+        "content": "A batch is a subset of training examples processed together to compute a gradient estimate. Batch size affects memory use, throughput, and gradient noise."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is gradient accumulation?"
+      },
+      {
+        "role": "assistant",
+        "content": "Gradient accumulation combines gradients from several smaller batches before performing an optimizer update. It provides a larger effective batch size without requiring the entire batch to fit in memory."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is overfitting?"
+      },
+      {
+        "role": "assistant",
+        "content": "Overfitting occurs when a model learns training data too specifically, including patterns that do not generalize to unseen data. Training performance can improve while validation performance worsens."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is underfitting?"
+      },
+      {
+        "role": "assistant",
+        "content": "Underfitting occurs when a model is too limited or insufficiently trained to capture important patterns. It usually performs poorly on both training and validation data."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is the bias-variance trade-off?"
+      },
+      {
+        "role": "assistant",
+        "content": "Bias reflects error from overly restrictive assumptions, while variance reflects sensitivity to the particular training data. Good generalization requires an appropriate balance between model simplicity and flexibility."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is dropout?"
+      },
+      {
+        "role": "assistant",
+        "content": "Dropout is a regularization technique that randomly deactivates a fraction of units during training. It reduces reliance on particular pathways and can improve generalization."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why is dropout disabled during inference?"
+      },
+      {
+        "role": "assistant",
+        "content": "Dropout is intended as a training-time regularizer. During inference, the model uses deterministic activations with the learned network rather than randomly dropping units."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is early stopping?"
+      },
+      {
+        "role": "assistant",
+        "content": "Early stopping ends training when a chosen validation metric stops improving for a specified period. It can reduce unnecessary training and help prevent overfitting."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is data leakage?"
+      },
+      {
+        "role": "assistant",
+        "content": "Data leakage occurs when information that should be unavailable during training or evaluation influences the model or preprocessing. It can produce unrealistically strong evaluation results."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is data augmentation?"
+      },
+      {
+        "role": "assistant",
+        "content": "Data augmentation creates additional training variation by applying label-preserving transformations. In images, examples include appropriate crops, flips, scaling, and controlled appearance changes."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why is dataset quality important?"
+      },
+      {
+        "role": "assistant",
+        "content": "A model learns patterns represented in its training data. Incorrect, noisy, inconsistent, or contradictory examples can teach undesirable behavior, while accurate and diverse examples support better generalization."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is a CNN?"
+      },
+      {
+        "role": "assistant",
+        "content": "A convolutional neural network is an architecture that exploits local spatial structure, especially in images. Convolutional filters learn reusable local patterns that can be combined into higher-level features."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why are convolutional filters useful for images?"
+      },
+      {
+        "role": "assistant",
+        "content": "Convolutional filters examine local neighborhoods and share parameters across spatial locations. This efficiently captures patterns such as edges, textures, and shapes while preserving spatial relationships."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is a convolution kernel?"
+      },
+      {
+        "role": "assistant",
+        "content": "A convolution kernel is a small set of learnable weights that slides over an input feature map. At each location it computes a weighted combination of local values."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is stride?"
+      },
+      {
+        "role": "assistant",
+        "content": "Stride specifies how far a convolution kernel moves between adjacent positions. Increasing stride generally reduces the spatial resolution of the output feature map."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is padding?"
+      },
+      {
+        "role": "assistant",
+        "content": "Padding adds values around the border of an input before convolution. It can preserve spatial dimensions and allow border regions to participate in convolution."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is pooling?"
+      },
+      {
+        "role": "assistant",
+        "content": "Pooling summarizes local regions of a feature map and usually reduces spatial resolution. Max pooling, for example, selects the maximum activation within each pooling window."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is a receptive field?"
+      },
+      {
+        "role": "assistant",
+        "content": "A neuron's receptive field is the region of the original input that can influence its activation. Deeper CNN layers typically have larger receptive fields."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is transfer learning?"
+      },
+      {
+        "role": "assistant",
+        "content": "Transfer learning starts with a model pretrained on a large dataset and adapts it to a new task. It can reduce the amount of task-specific data and training required."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is image classification?"
+      },
+      {
+        "role": "assistant",
+        "content": "Image classification assigns one or more labels to an image. A multiclass classifier typically produces scores or probabilities for a predefined set of classes."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is object detection?"
+      },
+      {
+        "role": "assistant",
+        "content": "Object detection identifies individual objects and predicts their classes and locations, commonly using bounding boxes."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is semantic segmentation?"
+      },
+      {
+        "role": "assistant",
+        "content": "Semantic segmentation assigns a class label to every pixel. Different objects belonging to the same class receive the same semantic label."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is instance segmentation?"
+      },
+      {
+        "role": "assistant",
+        "content": "Instance segmentation predicts a class and a separate mask for each object instance. Thus, two objects of the same class can receive distinct masks."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is IoU?"
+      },
+      {
+        "role": "assistant",
+        "content": "Intersection over Union, or IoU, measures overlap between a predicted region and a ground-truth region. It is intersection area divided by union area."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why can class imbalance hurt a classifier?"
+      },
+      {
+        "role": "assistant",
+        "content": "When a few classes dominate the dataset, a model may favor those classes and perform poorly on minority classes. Class-aware sampling, weighting, augmentation, and appropriate metrics can help."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is an RNN?"
+      },
+      {
+        "role": "assistant",
+        "content": "A recurrent neural network processes sequential data while maintaining a hidden state that carries information across time steps. This allows the model to represent temporal dependencies."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why do basic RNNs struggle with long sequences?"
+      },
+      {
+        "role": "assistant",
+        "content": "Repeated transformations across many time steps can cause gradients to vanish or explode. As a result, basic RNNs may struggle to learn long-range dependencies."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is an LSTM?"
+      },
+      {
+        "role": "assistant",
+        "content": "An LSTM is a recurrent architecture with gates that control information flow through a cell state and hidden state. These mechanisms help preserve useful information over longer sequences."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is a GRU?"
+      },
+      {
+        "role": "assistant",
+        "content": "A GRU is a gated recurrent architecture that uses update and reset mechanisms to control information flow. It can model sequential dependencies with a simpler structure than an LSTM."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is self-attention?"
+      },
+      {
+        "role": "assistant",
+        "content": "Self-attention lets each token assign different weights to other tokens in the same sequence. It creates context-aware representations and can model relationships between distant positions."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What are query, key, and value vectors?"
+      },
+      {
+        "role": "assistant",
+        "content": "Queries represent what a token is seeking, keys represent features used for matching, and values contain information to aggregate. Query-key compatibility determines attention weights applied to values."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is scaled dot-product attention?"
+      },
+      {
+        "role": "assistant",
+        "content": "Scaled dot-product attention computes query-key similarities, divides them by the square root of the key dimension, applies softmax, and uses the resulting weights to combine value vectors."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why is attention scaled?"
+      },
+      {
+        "role": "assistant",
+        "content": "Without scaling, dot products can become large as vector dimension grows. Very large scores can make softmax overly peaked and produce small gradients, so scaling helps maintain stable magnitudes."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is multi-head attention?"
+      },
+      {
+        "role": "assistant",
+        "content": "Multi-head attention performs several attention operations in parallel using different learned projections. Different heads can capture different relationships, and their outputs are combined."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why do Transformers need positional information?"
+      },
+      {
+        "role": "assistant",
+        "content": "Self-attention does not inherently encode sequence order. Positional information supplies information about token positions so the model can learn order-dependent relationships."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is a Transformer encoder?"
+      },
+      {
+        "role": "assistant",
+        "content": "A Transformer encoder uses self-attention and feed-forward layers to create contextual representations of an input sequence. It is commonly used for representation learning and understanding tasks."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is a Transformer decoder?"
+      },
+      {
+        "role": "assistant",
+        "content": "A Transformer decoder uses masked self-attention to process previously available tokens and can also attend to encoder representations in encoder-decoder architectures. Decoder-only LLMs use causal masking for generation."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is causal language modeling?"
+      },
+      {
+        "role": "assistant",
+        "content": "Causal language modeling trains a model to predict the next token using previous context. A causal attention mask prevents a position from using future tokens."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is an embedding?"
+      },
+      {
+        "role": "assistant",
+        "content": "An embedding is a learned vector representation of an item such as a token. It maps discrete inputs into a continuous numerical space that a neural network can process."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is a token in an LLM?"
+      },
+      {
+        "role": "assistant",
+        "content": "A token is a unit of text processed by an LLM. Depending on the tokenizer, a token can be a word, part of a word, punctuation, or another text fragment."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why does tokenization matter?"
+      },
+      {
+        "role": "assistant",
+        "content": "Tokenization determines how text becomes token IDs and affects sequence length, computational cost, and how efficiently the model represents different types of text."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is a large language model?"
+      },
+      {
+        "role": "assistant",
+        "content": "An LLM is a neural language model trained on large-scale text data to learn patterns in language. Modern LLMs commonly use Transformer architectures and generate text by predicting tokens."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is an instruction-tuned model?"
+      },
+      {
+        "role": "assistant",
+        "content": "An instruction-tuned model receives additional training on examples containing instructions or requests and desired responses. This helps it follow user tasks more effectively."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is supervised fine-tuning?"
+      },
+      {
+        "role": "assistant",
+        "content": "Supervised fine-tuning adapts a pretrained model using examples containing inputs and desired outputs. The model is optimized to increase the likelihood of the target responses."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is the difference between pretraining and fine-tuning?"
+      },
+      {
+        "role": "assistant",
+        "content": "Pretraining learns broad language representations from large-scale data, usually with a self-supervised objective. Fine-tuning starts from that pretrained model and adapts it to a more specific task, behavior, or domain."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why fine-tune instead of training from scratch?"
+      },
+      {
+        "role": "assistant",
+        "content": "Fine-tuning reuses knowledge learned during expensive pretraining. It typically requires much less data, compute, and time than training a comparable model from random initialization."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is PEFT?"
+      },
+      {
+        "role": "assistant",
+        "content": "Parameter-Efficient Fine-Tuning, or PEFT, adapts a pretrained model by training only a small set of parameters or added parameters while keeping most of the base model frozen."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is LoRA?"
+      },
+      {
+        "role": "assistant",
+        "content": "LoRA, or Low-Rank Adaptation, freezes the pretrained weights and adds trainable low-rank matrices to selected layers. Only these adapter parameters are optimized during fine-tuning."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why does LoRA reduce trainable parameters?"
+      },
+      {
+        "role": "assistant",
+        "content": "LoRA represents a weight update using the product of two smaller low-rank matrices instead of learning a full update matrix. This greatly reduces the number of trainable parameters."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What does LoRA rank r control?"
+      },
+      {
+        "role": "assistant",
+        "content": "The rank r controls the dimensionality of the low-rank update. A larger rank increases adaptation capacity but also increases trainable parameters and memory use."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is QLoRA?"
+      },
+      {
+        "role": "assistant",
+        "content": "QLoRA combines LoRA with quantization of the frozen base model, commonly using 4-bit representations. This reduces memory requirements while keeping the trainable adapters in higher precision."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is the difference between LoRA and QLoRA?"
+      },
+      {
+        "role": "assistant",
+        "content": "LoRA adds low-rank trainable adapters while the base model remains in its chosen precision. QLoRA additionally quantizes the frozen base model, reducing memory consumption."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is an adapter?"
+      },
+      {
+        "role": "assistant",
+        "content": "An adapter is a small set of trainable parameters associated with a pretrained model. The base model can remain frozen while the adapter learns task-specific behavior."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is catastrophic forgetting?"
+      },
+      {
+        "role": "assistant",
+        "content": "Catastrophic forgetting is the loss of previously useful capabilities when a model is strongly adapted to new data. Careful training settings, representative data, and parameter-efficient methods can help reduce this risk."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Can fine-tuning automatically make an LLM more factual?"
+      },
+      {
+        "role": "assistant",
+        "content": "No. Fine-tuning changes behavior according to the training objective and examples. Poor or incorrect data can introduce errors, so factuality requires appropriate data and evaluation."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is a system prompt?"
+      },
+      {
+        "role": "assistant",
+        "content": "A system prompt provides high-level instructions about the assistant's role or behavior. In an instruction dataset, consistent system messages can reinforce the intended response style."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why use the same questions before and after fine-tuning?"
+      },
+      {
+        "role": "assistant",
+        "content": "Using identical evaluation prompts makes the comparison more controlled. It allows us to observe whether fine-tuning changed the model's behavior without changing the evaluation questions."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is temperature in text generation?"
+      },
+      {
+        "role": "assistant",
+        "content": "Temperature controls the sharpness of the probability distribution used during sampling. Lower values generally produce more deterministic outputs, while higher values can produce more varied outputs."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What does max_new_tokens control?"
+      },
+      {
+        "role": "assistant",
+        "content": "max_new_tokens limits the number of tokens generated after the input. It controls output length and is independent of the number of input tokens."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is accuracy?"
+      },
+      {
+        "role": "assistant",
+        "content": "Accuracy is the fraction of predictions that are correct. It can be useful for balanced classification problems but may hide poor minority-class performance in imbalanced datasets."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is precision?"
+      },
+      {
+        "role": "assistant",
+        "content": "Precision is the fraction of predicted positive cases that are actually positive. It measures how reliable positive predictions are."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is recall?"
+      },
+      {
+        "role": "assistant",
+        "content": "Recall is the fraction of actual positive cases that the model correctly identifies. It measures how effectively the model finds positive cases."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is F1 score?"
+      },
+      {
+        "role": "assistant",
+        "content": "F1 is the harmonic mean of precision and recall. It balances the two metrics when both false positives and false negatives are important."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why can accuracy be misleading for imbalanced data?"
+      },
+      {
+        "role": "assistant",
+        "content": "A model can obtain high accuracy by predicting the majority class frequently while missing minority classes. Per-class metrics, macro F1, and confusion matrices provide additional insight."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is perplexity?"
+      },
+      {
+        "role": "assistant",
+        "content": "Perplexity measures how well a language model predicts a sequence under its probability distribution. Lower perplexity generally indicates better predictive performance on the evaluated text, but it does not fully measure helpfulness or factuality."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why is loss alone insufficient for evaluating an instruction-tuned LLM?"
+      },
+      {
+        "role": "assistant",
+        "content": "Loss measures the training objective but does not directly measure usefulness, factuality, consistency, or alignment. Instruction-tuned models should also be evaluated with task-specific and qualitative criteria."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is a confusion matrix?"
+      },
+      {
+        "role": "assistant",
+        "content": "A confusion matrix summarizes classification predictions by showing how often each actual class is predicted as each class. It helps identify systematic class confusions."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is a test set?"
+      },
+      {
+        "role": "assistant",
+        "content": "A test set is held-out data reserved for final evaluation after model and hyperparameter decisions have been made. It provides an estimate of performance on unseen data."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why can validation loss be lower than training loss?"
+      },
+      {
+        "role": "assistant",
+        "content": "This can happen for several benign reasons, including dropout or other training-time regularization being active during training, differences in batch composition, or a small validation set. It is not automatically evidence of a problem."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What does it mean if training loss decreases while validation loss increases?"
+      },
+      {
+        "role": "assistant",
+        "content": "This pattern usually indicates overfitting: the model continues fitting training examples while generalization to held-out examples worsens. More data, stronger regularization, fewer epochs, or early stopping may help."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why might a small fine-tuning dataset produce little behavioral change?"
+      },
+      {
+        "role": "assistant",
+        "content": "A small dataset may not provide enough diverse evidence to override the model's existing behavior. The effect also depends on learning rate, number of epochs, adapter capacity, and consistency of the examples."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why might a fine-tuned model become repetitive?"
+      },
+      {
+        "role": "assistant",
+        "content": "Repetition can result from narrow training data, excessive training, decoding settings, or patterns present in the fine-tuning examples. Dataset diversity and generation parameters should be checked."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why keep a baseline before fine-tuning?"
+      },
+      {
+        "role": "assistant",
+        "content": "The baseline shows how the original model behaves. Comparing it with the adapted model helps determine whether fine-tuning caused the intended behavioral change."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What should I do if the fine-tuning dataset contains contradictory answers?"
+      },
+      {
+        "role": "assistant",
+        "content": "Resolve contradictions before training whenever possible. Conflicting targets make the desired behavior ambiguous and can lead to inconsistent model outputs."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why separate training and validation data?"
+      },
+      {
+        "role": "assistant",
+        "content": "Training data is used to update parameters, while validation data provides an independent signal for monitoring generalization. Reusing training examples for validation can produce overly optimistic results."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What makes a good SFT example?"
+      },
+      {
+        "role": "assistant",
+        "content": "A good SFT example has a clear input, a correct target response, consistent formatting, and enough context to demonstrate the desired behavior. A good dataset should also contain diverse task types."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why is diversity important in an SFT dataset?"
+      },
+      {
+        "role": "assistant",
+        "content": "Diverse examples reduce dependence on specific wording and help the model generalize the desired behavior to different prompts, topics, and contexts."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why should duplicate examples be minimized?"
+      },
+      {
+        "role": "assistant",
+        "content": "Heavy duplication reduces effective dataset diversity and can make the model overemphasize a narrow pattern. Distinct, high-quality examples generally provide more useful training signal."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is a train-validation split?"
+      },
+      {
+        "role": "assistant",
+        "content": "A train-validation split separates examples used for parameter updates from examples used to monitor generalization. The split should be representative and avoid leakage between related examples."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why inspect tokenized data before training?"
+      },
+      {
+        "role": "assistant",
+        "content": "Token inspection can reveal malformed formatting, missing fields, unexpectedly long sequences, or inefficient tokenization. It is a useful sanity check before training."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why are chat templates important?"
+      },
+      {
+        "role": "assistant",
+        "content": "Chat templates convert structured system, user, and assistant messages into the text format expected by a specific instruction-tuned model. Using the correct template helps preserve conversational roles."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Compare full fine-tuning and LoRA."
+      },
+      {
+        "role": "assistant",
+        "content": "Full fine-tuning updates the original model parameters and can require substantial memory and storage. LoRA freezes the base model and trains small low-rank adapters, greatly reducing trainable parameters."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Compare prompt engineering and fine-tuning."
+      },
+      {
+        "role": "assistant",
+        "content": "Prompt engineering changes the input instructions without changing model parameters. Fine-tuning changes model or adapter parameters using training examples, allowing more persistent task- or behavior-specific adaptation."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Compare prompt tuning and LoRA."
+      },
+      {
+        "role": "assistant",
+        "content": "Prompt tuning learns a small set of continuous prompt embeddings while the base model remains frozen. LoRA learns low-rank weight updates in selected layers. Both are parameter-efficient but modify different parts of the model."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "When is prompt engineering preferable to fine-tuning?"
+      },
+      {
+        "role": "assistant",
+        "content": "Prompt engineering is often preferable when the desired behavior can be achieved through clear instructions or few-shot examples and frequent iteration is expected. It is cheaper and does not require retraining."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "When is fine-tuning preferable to prompt engineering?"
+      },
+      {
+        "role": "assistant",
+        "content": "Fine-tuning can be useful when a consistent behavior, response format, or domain-specific pattern must be learned across many requests and repeatedly specifying it in prompts is inefficient."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why is LoRA useful for an FDP hands-on session?"
+      },
+      {
+        "role": "assistant",
+        "content": "LoRA makes parameter-efficient adaptation practical on limited hardware because the base model can remain frozen while only a small number of adapter parameters are trained. It also makes the effect of fine-tuning easy to demonstrate."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "My GPU runs out of memory during LLM training. What can I try?"
+      },
+      {
+        "role": "assistant",
+        "content": "Reduce batch size or sequence length, use gradient accumulation, enable mixed precision, use gradient checkpointing when appropriate, or use PEFT methods such as LoRA. Quantization and QLoRA can reduce memory further."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why inspect model outputs after fine-tuning?"
+      },
+      {
+        "role": "assistant",
+        "content": "Training metrics alone do not show whether the model learned the intended behavior. Directly inspecting outputs can reveal improvements, regressions, hallucinations, repetition, or unwanted style changes."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why should fine-tuning examples be technically correct?"
+      },
+      {
+        "role": "assistant",
+        "content": "Fine-tuning reinforces patterns found in the examples. If the examples contain factual errors, the adapted model may reproduce or strengthen those errors, so dataset quality is central to successful fine-tuning."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Does fine-tuning add new knowledge to an LLM?"
+      },
+      {
+        "role": "assistant",
+        "content": "Fine-tuning can encode information present in its training examples, but it should not be treated as a guaranteed knowledge-update mechanism. It is primarily useful for adapting behavior, task performance, style, and domain patterns."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is instruction following?"
+      },
+      {
+        "role": "assistant",
+        "content": "Instruction following is the ability of a model to interpret a user's requested task and produce an output that satisfies the instruction. Instruction tuning improves this behavior by training on instruction-response examples."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is supervised fine-tuning loss in conversational training?"
+      },
+      {
+        "role": "assistant",
+        "content": "The model is trained to predict the target response tokens given the conversational context. The loss measures how well those target tokens are predicted and provides the gradient signal for adaptation."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why should evaluation data be kept separate from training data?"
+      },
+      {
+        "role": "assistant",
+        "content": "Evaluation data should measure behavior on examples that did not directly shape the model's parameters. Keeping it separate gives a more meaningful estimate of generalization."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is domain adaptation?"
+      },
+      {
+        "role": "assistant",
+        "content": "Domain adaptation adjusts a pretrained model so it performs better on a particular domain, such as medicine, finance, or engineering. The adaptation may involve domain-specific data, fine-tuning, retrieval, or other methods."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is model quantization?"
+      },
+      {
+        "role": "assistant",
+        "content": "Quantization represents model values using lower numerical precision, such as 8-bit or 4-bit formats. It can reduce memory use and sometimes improve inference efficiency, with a possible trade-off in accuracy."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why is QLoRA useful on a Colab GPU?"
+      },
+      {
+        "role": "assistant",
+        "content": "QLoRA reduces memory usage by quantizing the frozen base model while training small LoRA adapters. This can make fine-tuning models feasible on GPUs with limited memory."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is mixed-precision training?"
+      },
+      {
+        "role": "assistant",
+        "content": "Mixed-precision training uses lower-precision numerical formats for selected computations while retaining higher precision where needed. It can reduce memory use and increase throughput on supported GPUs."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is transfer learning in deep learning?"
+      },
+      {
+        "role": "assistant",
+        "content": "Transfer learning reuses representations learned from one task or dataset for another related task. It often reduces data and computation requirements compared with training from scratch."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is fine-tuning in computer vision?"
+      },
+      {
+        "role": "assistant",
+        "content": "Fine-tuning a vision model starts from pretrained weights and continues training on task-specific data. Some or all layers may be updated depending on the amount of data and similarity between domains."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why freeze early layers during transfer learning?"
+      },
+      {
+        "role": "assistant",
+        "content": "Early layers often learn general features such as edges and textures. Freezing them can reduce computation and overfitting when the new dataset is small, while later layers adapt to the new task."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is domain shift?"
+      },
+      {
+        "role": "assistant",
+        "content": "Domain shift occurs when the distribution of inputs or labels changes between training and deployment. A model can therefore perform well on its training distribution but degrade in a different environment."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why is validation performance important during fine-tuning?"
+      },
+      {
+        "role": "assistant",
+        "content": "Validation performance provides a signal about generalization to unseen examples. It helps identify overfitting and supports decisions about epochs, learning rate, and checkpoint selection."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is an ablation study?"
+      },
+      {
+        "role": "assistant",
+        "content": "An ablation study evaluates a system with specific components removed or changed to understand their individual contribution. It helps determine which design choices actually improve performance."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is reproducibility in machine learning?"
+      },
+      {
+        "role": "assistant",
+        "content": "Reproducibility means that an experiment can be repeated with the same setup and obtain comparable results. Recording data versions, code, model versions, seeds, hyperparameters, and environment details supports reproducibility."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why set a random seed?"
+      },
+      {
+        "role": "assistant",
+        "content": "A random seed makes many stochastic operations deterministic or repeatable across runs. It improves experiment reproducibility, although complete determinism may still depend on hardware and software settings."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is an epoch versus a training step?"
+      },
+      {
+        "role": "assistant",
+        "content": "An epoch is one complete pass through the training dataset. A training step usually refers to one optimizer update, which may occur after one or more mini-batches when gradient accumulation is used."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What does effective batch size mean?"
+      },
+      {
+        "role": "assistant",
+        "content": "Effective batch size is the number of examples contributing to one optimizer update. With gradient accumulation, it is approximately per-device batch size multiplied by accumulation steps and the number of devices."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is model checkpointing?"
+      },
+      {
+        "role": "assistant",
+        "content": "Checkpointing saves model or adapter parameters and training state during or after training. It allows experiments to resume and provides candidate versions for evaluation."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why save the LoRA adapter separately?"
+      },
+      {
+        "role": "assistant",
+        "content": "A LoRA adapter is much smaller than the complete base model. Saving it separately allows the same base model to be reused with different task-specific adapters and makes distribution more efficient."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Can multiple LoRA adapters be used with one base model?"
+      },
+      {
+        "role": "assistant",
+        "content": "Yes. A compatible base model can be paired with different adapters for different tasks or domains. The adapters can be loaded or selected according to the desired application."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is a tokenizer vocabulary?"
+      },
+      {
+        "role": "assistant",
+        "content": "A tokenizer vocabulary is the mapping between token strings or subword units and their integer IDs. The model consumes these IDs rather than raw text."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is padding?"
+      },
+      {
+        "role": "assistant",
+        "content": "Padding adds special tokens so sequences in a batch can have compatible lengths. Padding allows tensors to be stacked, while an attention mask indicates which positions are real input and which are padding."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is an attention mask?"
+      },
+      {
+        "role": "assistant",
+        "content": "An attention mask indicates which positions should participate in attention. In causal language modeling, masking also prevents a token from attending to future tokens."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why can sequence length affect LLM training cost?"
+      },
+      {
+        "role": "assistant",
+        "content": "Attention and other operations process token sequences, so longer sequences generally require more computation and memory. Efficient sequence lengths are important when GPU memory is limited."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is hallucination in an LLM?"
+      },
+      {
+        "role": "assistant",
+        "content": "Hallucination is a generated statement that is unsupported, fabricated, or factually incorrect despite being presented as plausible. Fine-tuning alone does not guarantee elimination of hallucinations."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Can retrieval-augmented generation replace fine-tuning?"
+      },
+      {
+        "role": "assistant",
+        "content": "RAG and fine-tuning solve different problems. RAG supplies external information at inference time, while fine-tuning changes model behavior through training. They can also be combined."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is RAG?"
+      },
+      {
+        "role": "assistant",
+        "content": "Retrieval-Augmented Generation retrieves relevant external documents or passages and provides them to the language model as context before generation. This can improve responses that depend on up-to-date or domain-specific information."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Fine-tuning or RAG for frequently changing knowledge?"
+      },
+      {
+        "role": "assistant",
+        "content": "RAG is often preferable when information changes frequently because the knowledge source can be updated without retraining the model. Fine-tuning is more suitable for learning stable behaviors, formats, or task patterns."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is prompt engineering?"
+      },
+      {
+        "role": "assistant",
+        "content": "Prompt engineering is the deliberate design of instructions, context, examples, constraints, and output formats to guide a model without changing its parameters."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is few-shot prompting?"
+      },
+      {
+        "role": "assistant",
+        "content": "Few-shot prompting provides a small number of input-output examples inside the prompt. These examples demonstrate the desired task pattern without updating model parameters."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is zero-shot prompting?"
+      },
+      {
+        "role": "assistant",
+        "content": "Zero-shot prompting asks a model to perform a task without providing task-specific examples in the prompt. The model relies on instructions and its pretrained capabilities."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is chain-of-thought prompting?"
+      },
+      {
+        "role": "assistant",
+        "content": "Chain-of-thought prompting encourages a model to reason through a problem step by step. In practical systems, it is often preferable to request a concise rationale or final answer rather than exposing private internal reasoning."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is instruction formatting?"
+      },
+      {
+        "role": "assistant",
+        "content": "Instruction formatting defines a consistent structure for presenting task instructions, context, and expected outputs. Consistency makes both prompting and supervised fine-tuning easier to control."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is an evaluation rubric for an LLM?"
+      },
+      {
+        "role": "assistant",
+        "content": "An evaluation rubric defines explicit criteria for judging generated responses, such as correctness, relevance, completeness, clarity, and adherence to format. It makes qualitative evaluation more systematic."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "Why should an LLM be evaluated on unseen prompts?"
+      },
+      {
+        "role": "assistant",
+        "content": "Unseen prompts test whether the desired behavior generalizes beyond memorized training examples. They provide a better indication of whether fine-tuning learned a reusable pattern."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is overfitting in LLM fine-tuning?"
+      },
+      {
+        "role": "assistant",
+        "content": "Overfitting in LLM fine-tuning occurs when the adapted model becomes too specialized to the training examples and loses generalization to new prompts or domains. It can be detected through validation and unseen-prompt evaluation."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a Deep Learning teaching assistant. Explain concepts accurately, clearly, and concisely. Use appropriate technical terminology, correct misconceptions, and give practical intuition when useful. Prefer a short definition followed by the key mechanism or implication."
+      },
+      {
+        "role": "user",
+        "content": "What is a good final workflow for an SFT experiment?"
+      },
+      {
+        "role": "assistant",
+        "content": "A practical workflow is: define the target behavior, curate and validate data, split train and validation sets, inspect tokenization, establish a baseline, configure PEFT/SFT, train, monitor metrics, save the adapter, and compare the adapted model with the baseline on unseen prompts."
+      }
+    ]
+  }
+]
